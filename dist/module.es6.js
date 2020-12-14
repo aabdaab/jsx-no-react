@@ -153,7 +153,7 @@ function appendChild(elem, children) {
 
   var child = children;
 
-  if (!(child instanceof Node)) {
+  if (typeof child === 'string') {
     child = document.createTextNode(child.toString());
   }
 
@@ -238,7 +238,7 @@ var createAndAppendSVG = function createAndAppendSVG(tag, attrs) {
     try {
       for (_iterator.s(); !(_step = _iterator.n()).done;) {
         var attribute = _step.value;
-        childElement.setAttributeNS(null, attribute.nodeName, attribute.nodeValue);
+        childElement.setAttribute(attribute.name, attribute.value);
       }
     } catch (err) {
       _iterator.e(err);

@@ -10,8 +10,8 @@ function appendChild(elem, children) {
 
   let child = children;
 
-  if (!(child instanceof Node)) {
-    child = document.createTextNode(child.toString());
+  if (typeof child === 'string') {
+    child = document.createTextNode(child.toString())
   }
 
   elem.appendChild(child);
@@ -78,7 +78,7 @@ const createAndAppendSVG = (tag, attrs, ...children) => {
     const childElement = document.createElementNS('http://www.w3.org/2000/svg', child.nodeName.toLowerCase())
 
     for (const attribute of child.attributes) {
-      childElement.setAttributeNS(null,attribute.nodeName, attribute.nodeValue);
+      childElement.setAttribute(attribute.name, attribute.value);
     }
 
     appendChild(element, childElement);
