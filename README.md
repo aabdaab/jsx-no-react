@@ -1,13 +1,14 @@
-# jsx-no-react
+# jsx-no-react-amp
 
-[![CircleCI](https://circleci.com/gh/bitboxer/wishlephant.svg?style=svg&circle-token=af88ff19aedb125bc8fc2dfe165c62712fb336f8)](https://circleci.com/gh/bitboxer/wishlephant)
+`jsx-no-react-amp` makes it possible to use React's JSX syntax outside of React projects.
 
-`jsx-no-react` makes it possible to use React's JSX syntax outside of React projects.
+The source is almost entirely based on https://github.com/bitboxer/jsx-no-react repo.
+It adds smalls adjustments to the jsx pragma module for it to be AMP-compatible.
 
 ## Installation
 
 ```sh
-yarn add jsx-no-react
+yarn add jsx-no-react-amp
 ```
 
 You'll also need to hook the `jsxElem` function into the JSX transformation, for which you should probably use [babel](https://www.npmjs.com/package/babel-plugin-transform-react-jsx), which you can install and setup fairly simply:
@@ -36,10 +37,10 @@ and configure babel to correctly transform JSX with a `.babelrc` something like:
 
 ### Basic
 
-The `jsx-no-react` package just defines a function to replace the `React.createElement`, so as well as importing the relevant function into scope where you want to use JSX:
+The `jsx-no-react-amp` package just defines a function to replace the `React.createElement`, so as well as importing the relevant function into scope where you want to use JSX:
 
 ```javascript
-import jsxElem, { render } from "jsx-no-react";
+import jsxElem, { render } from "jsx-no-react-amp";
 
 function App(props) {
   return <div>Hello {props.name}</div>;
@@ -51,7 +52,7 @@ render(<App name="world" />, document.body);
 or
 
 ```javascript
-import jsxElem, { render } from "jsx-no-react";
+import jsxElem, { render } from "jsx-no-react-amp";
 
 function App(name) {
   return <div>Hello {name}</div>;
@@ -96,7 +97,7 @@ When rendering a component JSX attributes will be passed as single object.
 For example:
 
 ```javascript
-import jsxElem, { render } from "jsx-no-react";
+import jsxElem, { render } from "jsx-no-react-amp";
 
 function Hello(props) {
   return <h1>Hello {props.name}</h1>;
@@ -110,7 +111,7 @@ render(<Hello name="world" />, document.body);
 Components can be reused and combined together.
 
 ```javascript
-import jsxElem, { render } from "jsx-no-react";
+import jsxElem, { render } from "jsx-no-react-amp";
 
 function Hello(props) {
   return <h1>Hello {props.name}</h1>;
@@ -232,7 +233,7 @@ function App() {
 Object can be passed to the `style` attribute with keys in camelCase.
 
 ```javascript
-import jsxElem, { render } from "jsx-no-react";
+import jsxElem, { render } from "jsx-no-react-amp";
 
 function Hello(props) {
   return <h1>Hello {props.name}</h1>;
